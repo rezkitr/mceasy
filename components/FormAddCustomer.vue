@@ -64,6 +64,7 @@
               size="large"
               placeholder="dd/mm/yyyy"
               style="width: 100%"
+              format="DD/MM/YYYY"
             />
           </a-form-model-item>
         </div>
@@ -99,7 +100,7 @@
 
         <div class="flex flex-col">
           <FormItemLabel title="phone number" />
-          <a-form-model-item>
+          <a-form-model-item style="margin-bottom: 0">
             <a-input-group compact size="large">
               <a-select default-value="62" style="width: 20%" size="large">
                 <a-select-option value="62">+62</a-select-option>
@@ -132,7 +133,7 @@
 
         <div
           class="flex-1 bg-gray-200 rounded text-white relative"
-          style="margin-top: 20px; margin-bottom: 20px"
+          style="margin-bottom: 20px"
         >
           <div class="py-2 px-4 bg-yellow-200 flex items-center">
             <a-icon type="environment" />
@@ -153,7 +154,7 @@
           </a-form-model-item>
         </div>
 
-        <div class="flex justify-end" style="margin-top: 20px">
+        <div class="flex justify-end">
           <div
             class="success-btn rounded px-6 py-2 text-white inline-block cursor-pointer"
           >
@@ -176,9 +177,9 @@ export default {
 </script>
 
 <style scoped>
-.ant-form-item:last-of-type {
+/* .ant-form-item:last-of-type {
   margin-bottom: 0 !important;
-}
+} */
 .success-btn {
   background: #f95f5f;
 }
