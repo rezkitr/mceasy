@@ -8,8 +8,8 @@
       title="Dashboard"
       itemKey="dsb"
       iconName="home"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
 
     <div class="px-6 mt-6 mb-2">Main Menu</div>
@@ -17,36 +17,36 @@
       title="Analytics"
       itemKey="anl"
       iconName="line-chart"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
     <MenuItem
       title="Customers"
       itemKey="cust"
       iconName="user"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
     <MenuItem
       title="Products"
       itemKey="prd"
       iconName="tag"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
     <MenuItem
       title="Orders"
       itemKey="ord"
       iconName="shopping-cart"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
     <MenuItem
       title="Reports"
       itemKey="rpt"
       iconName="file-text"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
 
     <div class="px-6 mt-6 mb-2">Support</div>
@@ -54,30 +54,25 @@
       title="Settings"
       itemKey="stg"
       iconName="setting"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
     <MenuItem
       title="Support"
       itemKey="spt"
       iconName="customer-service"
-      :activeItem="activeMenuItem"
-      @onSelectItem="selectMenuItem"
+      :activeItem="activeItem"
+      @onSelect="onSelectMenuItem"
     />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      activeMenuItem: 'cust',
-    }
-  },
-
+  props: ['activeItem'],
   methods: {
-    selectMenuItem(key) {
-      this.activeMenuItem = key
+    onSelectMenuItem(key) {
+      this.$emit('onSelectItem', key)
     },
   },
 }

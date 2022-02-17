@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center mb-8">
     <div>
       <h3 class="text-2xl text-white">{{ title }}</h3>
-      <h5 class="font-light text-white text-gray-400">
+      <h5 class="font-light text-gray-400">
         {{ subtitle }}
       </h5>
     </div>
@@ -22,7 +22,7 @@
           placement="bottomRight"
           class="flex items-center"
         >
-          <div class="mr-8 cursor-default">Rezki</div>
+          <div class="mr-8 cursor-default">{{ $store.state.username }}</div>
           <a slot="content">Logout</a>
           <a-icon type="down" />
         </a-popover>

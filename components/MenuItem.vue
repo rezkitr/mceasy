@@ -22,7 +22,7 @@ export default {
   props: ['title', 'iconName', 'itemKey', 'activeItem'],
   methods: {
     selectItem() {
-      this.$emit('onSelectItem', this.itemKey)
+      this.$emit('onSelect', this.itemKey)
     },
   },
 }

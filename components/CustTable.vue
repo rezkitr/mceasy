@@ -31,6 +31,7 @@
 
         <div
           class="flex justify-center items-center px-4 py-2 rounded text-white font-semibold cursor-pointer success-btn"
+          @click="addCustomer"
         >
           <a-icon type="plus" />
           <div class="ml-2">Add Customer</div>
@@ -150,11 +151,14 @@ export default {
       }
       return originalElement
     },
+    addCustomer() {
+      this.$emit('addCustomer')
+    },
   },
 }
 </script>
 
-<style>
+<style scoped>
 .success-btn {
   background: #f95f5f;
 }

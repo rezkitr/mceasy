@@ -25,6 +25,16 @@ export const state = () => ({
   ],
 })
 
+// export const getters = {
+//   filteredCustByName: (state) => (keyword) => {
+//     if (keyword.length !== 0) {
+//       return state.customers.filter((cust) => cust.name.includes(keyword))
+//     } else {
+//       return state.customers
+//     }
+//   },
+// }
+
 export const mutations = {
   setUsername(state, username) {
     state.username = username

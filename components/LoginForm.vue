@@ -18,7 +18,9 @@
           <a-input-password v-model="form.password" />
         </a-form-model-item>
         <a-form-model-item>
-          <a-button block type="primary" @click="onLogin"> Login </a-button>
+          <a-button block type="primary" html-type="submit" @click="onLogin">
+            Login
+          </a-button>
         </a-form-model-item>
       </a-form-model>
     </a-card>
