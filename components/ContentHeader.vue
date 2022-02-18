@@ -23,7 +23,7 @@
           class="flex items-center"
         >
           <div class="mr-8 cursor-default">{{ $store.state.username }}</div>
-          <a slot="content">Logout</a>
+          <NuxtLink to="/" slot="content">Logout</NuxtLink>
           <a-icon type="down" />
         </a-popover>
       </div>
