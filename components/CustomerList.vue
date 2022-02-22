@@ -9,25 +9,31 @@
           placeholder="Search customer"
           style="width: 320px"
           size="large"
-          @search="onSearch"
+          v-model="name"
+          @change="onSearch"
         />
       </div>
     </div>
 
     <div class="px-8 mt-6 flex-1 flex flex-col">
-      <CustTable @addCustomer="onAddCustomer" />
+      <CustTable @addCustomer="onAddCustomer" :nameKeyword="name" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      name: '',
+    }
+  },
   methods: {
     onAddCustomer() {
       this.$emit('addCustomer')
     },
-    onSearch(value) {
-      console.log(value)
+    onSearch() {
+      this.$store.commit('filterCustomer', { name: this.name })
     },
   },
 }

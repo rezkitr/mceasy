@@ -10,7 +10,10 @@
                 placeholder="All Gender"
                 style="width: 140px"
                 size="large"
+                @change="onGenderChange"
+                v-model="selectedGender"
               >
+                <a-select-option value="a"> All Gender </a-select-option>
                 <a-select-option value="m"> Male </a-select-option>
                 <a-select-option value="f"> Female </a-select-option>
               </a-select>
@@ -40,7 +43,8 @@
       <div>
         <a-table
           :columns="columns"
-          :data-source="$store.state.customers"
+          :data-source="dataSource"
+          rowKey="id"
           :row-selection="{
             selectedRowKeys: selectedRowKeys,
             onChange: onSelectChange,
@@ -125,15 +129,30 @@ const columns = [
 ]
 
 export default {
+  props: ['nameKeyword'],
   data() {
     return {
       columns,
       selectedRowKeys: [],
+      selectedGender: 'a',
     }
+  },
+  computed: {
+    dataSource() {
+      if (!this.nameKeyword.length && this.selectedGender === 'a') {
+        return this.$store.state.customers
+      } else {
+        return this.$store.state.filteredCustomers
+      }
+    },
   },
   methods: {
     onSelectChange(selectedRowKeys) {
       this.selectedRowKeys = selectedRowKeys
+    },
+    onGenderChange(value) {
+      this.selectedGender = value
+      this.$store.commit('filterCustomer', { gender: value })
     },
     itemRender(current, type, originalElement) {
       if (type === 'prev') {
